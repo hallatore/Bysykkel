@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="ClearChannelSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ClearChannelSoap"
+                contract="ClearChannelService.ClearChannelSoap" name="ClearChannelSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

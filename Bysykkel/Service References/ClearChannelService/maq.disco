@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx?wsdl" docRef="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" xmlns:q1="http://smartbikeportal.clearchannel.no/public/mobapp/" binding="q1:ClearChannelSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" xmlns:q2="http://smartbikeportal.clearchannel.no/public/mobapp/" binding="q2:ClearChannelSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

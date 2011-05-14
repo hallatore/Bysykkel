@@ -1,0 +1,43 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Bysykkel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <toolkit:Map x:Name="map"
+            CacheMode="BitmapCache"
+            LogoVisibility="Collapsed"
+            CredentialsProvider="AsFvBq8txfoRQ8JD1Q7TNNZcskGBRhcq2vDJAIgzINN429sy0AsI0H_VjJF8R_qe">
+            <toolkit:MapLayer x:Name="myLayer"/>
+        </toolkit:Map>
+        <StackPanel x:Name="Summary" Visibility="Collapsed" IsHitTestVisible="False" Background="{StaticResource PhoneBackgroundBrush}" VerticalAlignment="Top">
+            <TextBlock x:Name="SummaryTitle" 
+                       Text=" Title " HorizontalAlignment="Right" MaxWidth="444" Margin="12,0,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="SummaryAmount"  
+                   Text="Description" HorizontalAlignment="Right" Margin="12,0,12,6" Style="{StaticResource PhoneTextAccentStyle}"/>
+        </StackPanel>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.favs.rest.png" Text="me" Click="ApplicationBarIconButton_Click" />
+            <shell:ApplicationBarIconButton x:Name="RefreshButton" IconUri="/Images/appbar.refresh.rest.png" Text="refresh" Click="ApplicationBarIconButton_Click_1" />
+            <!--<shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>-->
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smartbikeportal.clearchannel.no/public/mobapp/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://smartbikeportal.clearchannel.no/public/mobapp/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smartbikeportal.clearchannel.no/public/mobapp/">
+      <s:element name="getRacks">
+        <s:complexType />
+      </s:element>
+      <s:element name="getRacksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRacksResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getRacksSoapIn">
+    <wsdl:part name="parameters" element="tns:getRacks" />
+  </wsdl:message>
+  <wsdl:message name="getRacksSoapOut">
+    <wsdl:part name="parameters" element="tns:getRacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRackSoapIn">
+    <wsdl:part name="parameters" element="tns:getRack" />
+  </wsdl:message>
+  <wsdl:message name="getRackSoapOut">
+    <wsdl:part name="parameters" element="tns:getRackResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRacksHttpGetIn" />
+  <wsdl:message name="getRacksHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRackHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRackHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRacksHttpPostIn" />
+  <wsdl:message name="getRacksHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRackHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRackHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ClearChannelSoap">
+    <wsdl:operation name="getRacks">
+      <wsdl:input message="tns:getRacksSoapIn" />
+      <wsdl:output message="tns:getRacksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <wsdl:input message="tns:getRackSoapIn" />
+      <wsdl:output message="tns:getRackSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ClearChannelHttpGet">
+    <wsdl:operation name="getRacks">
+      <wsdl:input message="tns:getRacksHttpGetIn" />
+      <wsdl:output message="tns:getRacksHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <wsdl:input message="tns:getRackHttpGetIn" />
+      <wsdl:output message="tns:getRackHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ClearChannelHttpPost">
+    <wsdl:operation name="getRacks">
+      <wsdl:input message="tns:getRacksHttpPostIn" />
+      <wsdl:output message="tns:getRacksHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <wsdl:input message="tns:getRackHttpPostIn" />
+      <wsdl:output message="tns:getRackHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClearChannelSoap" type="tns:ClearChannelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRacks">
+      <soap:operation soapAction="http://smartbikeportal.clearchannel.no/public/mobapp/getRacks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <soap:operation soapAction="http://smartbikeportal.clearchannel.no/public/mobapp/getRack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClearChannelSoap12" type="tns:ClearChannelSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRacks">
+      <soap12:operation soapAction="http://smartbikeportal.clearchannel.no/public/mobapp/getRacks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <soap12:operation soapAction="http://smartbikeportal.clearchannel.no/public/mobapp/getRack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClearChannelHttpGet" type="tns:ClearChannelHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getRacks">
+      <http:operation location="/getRacks" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <http:operation location="/getRack" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClearChannelHttpPost" type="tns:ClearChannelHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getRacks">
+      <http:operation location="/getRacks" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRack">
+      <http:operation location="/getRack" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClearChannel">
+    <wsdl:port name="ClearChannelSoap" binding="tns:ClearChannelSoap">
+      <soap:address location="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClearChannelSoap12" binding="tns:ClearChannelSoap12">
+      <soap12:address location="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClearChannelHttpGet" binding="tns:ClearChannelHttpGet">
+      <http:address location="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClearChannelHttpPost" binding="tns:ClearChannelHttpPost">
+      <http:address location="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
