@@ -2,6 +2,6 @@ _ReSharper*
 Bin
 obj
 *.csproj.user
-*.resharper.user
+*.ReSharper.user
 *.resharper
 *.suo
