@@ -1,0 +1,13 @@
+﻿<xapCache source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\Bin\Release\Bysykkel.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="14.05.2011 13:10:27">
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\obj\Release\Bysykkel.dll" archivePath="Bysykkel.dll" lastWriteTime="14.05.2011 13:10:27" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.0\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="25.01.2011 00:39:08" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.0\Libraries\Silverlight\Microsoft.Phone.Controls.Maps.dll" archivePath="Microsoft.Phone.Controls.Maps.dll" lastWriteTime="17.10.2010 01:11:20" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\Images\appbar.favs.rest.png" archivePath="Images\appbar.favs.rest.png" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\Images\appbar.refresh.rest.png" archivePath="Images\appbar.refresh.rest.png" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\ServiceReferences.ClientConfig" archivePath="ServiceReferences.ClientConfig" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\Background.png" archivePath="Background.png" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="14.05.2011 12:25:00" />
+  <file source="C:\Users\Tore\Documents\Git\Bysykkel\Bysykkel\Bin\Release\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="14.05.2011 13:10:27" />
+</xapCache>
