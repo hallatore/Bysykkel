@@ -2,9 +2,6 @@ _ReSharper*
 bin
 obj
 *.csproj.user
-
 *.resharper.user
-
 *.resharper
-
 *.suo
