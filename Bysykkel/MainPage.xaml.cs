@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Device.Location;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using Bysykkel.BysykkelApiModel;
 using Bysykkel.Models;
 using Microsoft.Phone.Controls;
@@ -108,6 +103,20 @@ namespace Bysykkel
                 zoomLevel = (double)State["ZoomLevel"];
             }
 
+            LoadPage(center, zoomLevel);
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            State.Save("Model", Model);
+            State.Save("Center", map.Center);
+            State.Save("ZoomLevel", map.ZoomLevel);
+        }
+
+        private void LoadPage(GeoCoordinate center, double zoomLevel)
+        {
             if (Model != null)
             {
                 map.SetView(center, zoomLevel);
@@ -129,19 +138,6 @@ namespace Bysykkel
             var service = new ClearChannelService.ClearChannelSoapClient();
             service.getRacksCompleted += service_getRacksCompleted;
             service.getRacksAsync();
-        }
-
-        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-
-            State.Remove("Model");
-            State.Add("Model", Model);
-
-            State.Remove("Center");
-            State.Add("Center", map.Center);
-            State.Remove("ZoomLevel");
-            State.Add("ZoomLevel", map.ZoomLevel);
         }
 
         void Racks_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -221,7 +217,6 @@ namespace Bysykkel
                 StrokeThickness = 7,
                 Width = pinSize,
                 Height = pinSize,
-                CacheMode = new BitmapCache(),
                 DataContext = rack,
                 VerticalAlignment = System.Windows.VerticalAlignment.Center,
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
@@ -234,13 +229,21 @@ namespace Bysykkel
                 control.Stroke = brush;
             }
 
-            control.MouseLeftButtonUp += control_MouseLeftButtonDown;
 
-            return control;
+            var button = new Button
+            {
+                Content = control,
+                Margin = new Thickness(0),
+                CacheMode = new BitmapCache(),
+                Style = (Style)App.Current.Resources["TransparentButtonStyle"]
+            };
+            button.Click += button_Click;
+
+            return button;
         }
-
         private Ellipse lastRack;
-        void control_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        void button_Click(object sender, RoutedEventArgs e)
         {
             if (lastRack != null)
             {
@@ -249,7 +252,7 @@ namespace Bysykkel
                 lastRack.Stroke = new SolidColorBrush(GetColorGradiant(tmpRack.Bikes));
             }
 
-            lastRack = ((Ellipse) sender);
+            lastRack = ((Ellipse) ((Button)sender).Content);
             var rack = lastRack.DataContext as Rack;
 
             if (rack == null) return;
@@ -291,7 +294,10 @@ namespace Bysykkel
             else
                 SummaryTitle.Text = string.Empty;
 
-            Summary.Visibility = System.Windows.Visibility.Visible;
+            //Summary.Visibility = System.Windows.Visibility.Visible;
+
+            Storyboard popupStoryboard = (Storyboard)PopupGrid.Resources["PopupStoryBoard"];
+            popupStoryboard.Begin();
         }
 
         private const int maxValue = 230;
@@ -368,7 +374,7 @@ namespace Bysykkel
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
-            Summary.Visibility = System.Windows.Visibility.Collapsed;
+            Summary.Visibility = Visibility.Collapsed;
 
             var service = new ClearChannelService.ClearChannelSoapClient();
             service.getRacksCompleted += service_getRacksCompleted;
